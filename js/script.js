@@ -42,7 +42,7 @@ const post = [
     id: '2',
     userName: 'Marco Lanci',
     userPic: 'https://unsplash.it/300/300?image=74',
-    date: '07-06-2022',
+    date: '07-02-2022',
     text: 'Il ritorno di Di Maria è qualcosa di stupendo',
     image: 'https://unsplash.it/300/300?image=325',
     like: '150'
@@ -51,7 +51,7 @@ const post = [
     id: '3',
     userName: 'Fabrizio Mastrobattista',
     userPic: 'https://unsplash.it/300/300?image=4',
-    date: '07-06-2022',
+    date: '07-04-2022',
     text: 'La Juve si sta rinforzando e non poco',
     image: 'https://unsplash.it/300/300?image=363',
     like: '150'
@@ -60,7 +60,7 @@ const post = [
     id: '4',
     userName: 'Enrico Campani',
     userPic: 'https://unsplash.it/300/300?image=4',
-    date: '07-06-2022',
+    date: '07-05-2022',
     text: 'Forza Milan!',
     image: 'https://unsplash.it/300/300?image=363',
     like: '150'
@@ -68,3 +68,38 @@ const post = [
 ]
 
 console.table(post);
+
+for (let i = 0; i < post.length; i++) {
+    let currentElement = post[i];
+    card.innerHTML += ` <div class="post">
+    <div class="post__header">
+      <div class="post-meta">
+        <div class="post-meta__icon">
+          <img class="profile-pic" src="${currentElement.userPic}" alt="${currentElement.userName}" />
+        </div>
+        <div class="post-meta__data">
+          <div class="post-meta__author">${currentElement.userName}</div>
+          <div class="post-meta__time">${currentElement.date}</div>
+        </div>
+      </div>
+    </div>
+    <div class="post__text">
+    ${currentElement.text}
+    </div>
+    <div class="post__image">
+      <img src="${currentElement.image}" alt="${currentElement.userName}" />
+    </div>
+    <div class="post__footer">
+      <div class="likes js-likes">
+        <div class="likes__cta">
+          <a class="like-button js-like-button" href="#" data-postid="1">
+            <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+            <span class="like-button__label">Mi Piace</span>
+          </a>
+        </div>
+        <div class="likes__counter">Piace a <b id="like-counter-1" class="js-likes-counter">${currentElement.like}</b> persone</div>
+      </div>
+    </div>
+  </div>`
+
+}
