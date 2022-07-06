@@ -30,7 +30,7 @@ const card = document.getElementById('container');
 
 const post = [
     {
-        id: '1',
+        id: 1,
         userName: 'Manuel Tristano',
         userPic: 'https://unsplash.it/300/300?image=69',
         date: '07-06-2022',
@@ -39,7 +39,7 @@ const post = [
         like: 69
     },
     {
-        id: '2',
+        id: 2,
         userName: 'Marco Lanci',
         userPic: 'https://unsplash.it/300/300?image=74',
         date: '07-02-2022',
@@ -48,7 +48,7 @@ const post = [
         like: 150
     },
     {
-        id: '3',
+        id: 3,
         userName: 'Fabrizio Mastrobattista',
         userPic: 'https://unsplash.it/300/300?image=4',
         date: '07-04-2022',
@@ -57,7 +57,7 @@ const post = [
         like: 150
     },
     {
-        id: '4',
+        id: 4,
         userName: 'Enrico Campani',
         userPic: 'https://unsplash.it/300/300?image=4',
         date: '07-05-2022',
@@ -108,12 +108,20 @@ const button = document.querySelectorAll('.js-like-button')
 const contatore = document.querySelectorAll('.js-likes-counter')
 
 for (let i = 0; i < button.length; i++) {
-    const currentButton = button[i];
+    let currentButton = button[i];
     currentButton.addEventListener("click", () => {
-        currentButton.classList.add("like-button--liked");
-        const currentContatore = contatore[i];
-        let numberlike = parseInt(post[i].like);
-        currentContatore.innerText = ++numberlike;
+
+        let currentContatore = contatore[i];
+        let numberlike = (post[i].like); 
+        
+        if (currentButton.classList.contains('like-button--liked')) {
+            currentButton.classList.remove('like-button--liked');
+            currentContatore.innerText = numberlike - 1;
+        } else {
+            currentButton.classList.add("like-button--liked");
+            currentContatore.innerText = numberlike + 1;
+        }
     })
+    
 }
 
