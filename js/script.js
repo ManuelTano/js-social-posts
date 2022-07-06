@@ -116,7 +116,7 @@ for (let i = 0; i < button.length; i++) {
         
         if (currentButton.classList.contains('like-button--liked')) {
             currentButton.classList.remove('like-button--liked');
-            currentContatore.innerText = numberlike - 1;
+            currentContatore.innerText = numberlike - 1 + 1;
         } else {
             currentButton.classList.add("like-button--liked");
             currentContatore.innerText = numberlike + 1;
