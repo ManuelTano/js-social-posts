@@ -19,7 +19,7 @@
 // Prendendo come riferimento il layout di esempio presente nell'html,
 // stampiamo i post del nostro feed.
 // #Milestone 3
-// Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al test
+// Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo
 // del bottone e incrementiamo il counter dei likes relativo.
 
 //#MILESTONE 1
@@ -30,40 +30,40 @@ const card = document.getElementById('container');
 
 const post = [
     {
-    id: '1',
-    userName: 'Manuel Tristano',
-    userPic: 'https://unsplash.it/300/300?image=69',
-    date: '07-06-2022',
-    text: 'Il ritorno di Pogba è qualcosa di stupendo',
-    image: 'https://unsplash.it/300/300?image=14',
-    like: '69'
+        id: '1',
+        userName: 'Manuel Tristano',
+        userPic: 'https://unsplash.it/300/300?image=69',
+        date: '07-06-2022',
+        text: 'Il ritorno di Pogba è qualcosa di stupendo',
+        image: 'https://unsplash.it/300/300?image=14',
+        like: 69
     },
     {
-    id: '2',
-    userName: 'Marco Lanci',
-    userPic: 'https://unsplash.it/300/300?image=74',
-    date: '07-02-2022',
-    text: 'Il ritorno di Di Maria è qualcosa di stupendo',
-    image: 'https://unsplash.it/300/300?image=325',
-    like: '150'
+        id: '2',
+        userName: 'Marco Lanci',
+        userPic: 'https://unsplash.it/300/300?image=74',
+        date: '07-02-2022',
+        text: 'Il ritorno di Di Maria è qualcosa di stupendo',
+        image: 'https://unsplash.it/300/300?image=325',
+        like: 150
     },
     {
-    id: '3',
-    userName: 'Fabrizio Mastrobattista',
-    userPic: 'https://unsplash.it/300/300?image=4',
-    date: '07-04-2022',
-    text: 'La Juve si sta rinforzando e non poco',
-    image: 'https://unsplash.it/300/300?image=363',
-    like: '150'
+        id: '3',
+        userName: 'Fabrizio Mastrobattista',
+        userPic: 'https://unsplash.it/300/300?image=4',
+        date: '07-04-2022',
+        text: 'La Juve si sta rinforzando e non poco',
+        image: 'https://unsplash.it/300/300?image=363',
+        like: 150
     },
     {
-    id: '4',
-    userName: 'Enrico Campani',
-    userPic: 'https://unsplash.it/300/300?image=4',
-    date: '07-05-2022',
-    text: 'Forza Milan!',
-    image: 'https://unsplash.it/300/300?image=363',
-    like: '150'
+        id: '4',
+        userName: 'Enrico Campani',
+        userPic: 'https://unsplash.it/300/300?image=4',
+        date: '07-05-2022',
+        text: 'Forza Milan!',
+        image: 'https://unsplash.it/300/300?image=363',
+        like: 150
     },
 ]
 
@@ -103,3 +103,17 @@ for (let i = 0; i < post.length; i++) {
   </div>`
 
 }
+
+const button = document.querySelectorAll('.js-like-button')
+const contatore = document.querySelectorAll('.js-likes-counter')
+
+for (let i = 0; i < button.length; i++) {
+    const currentButton = button[i];
+    currentButton.addEventListener("click", () => {
+        currentButton.classList.add("like-button--liked");
+        const currentContatore = contatore[i];
+        let numberlike = parseInt(post[i].like);
+        currentContatore.innerText = ++numberlike;
+    })
+}
+
